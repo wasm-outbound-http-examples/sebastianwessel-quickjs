@@ -1,6 +1,6 @@
-#  Use sebastianwessel/quickjs to send HTTP(s) requests from inside WASM
+# Use sebastianwessel/quickjs to send HTTP(s) requests from inside WASM
 
-This devcontainer is configured to provide you a latest stable version of NodeJs by using default devcontainer configuration.
+This devcontainer is configured to provide you a latest stable version of Node.js by using default devcontainer configuration.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/wasm-outbound-http-examples/sebastianwessel-quickjs)
 
@@ -15,17 +15,17 @@ This devcontainer is configured to provide you a latest stable version of NodeJs
 <td>1</td>
 <td>
 
-[`fetch()` in NodeJs / Deno / Bun](node/README.md)
+[`fetch()` in browser and Node.js / Deno / Bun](browser-and-node/README.md)
 
 </td>
 <td>
 
-Using `fetch()` inside QuickJS.
+Using `fetch()` from sebastianwessel/quickjs.
 
 </td>
 <td>
 
-N/A
+[Demo](https://wasm-outbound-http-examples.github.io/sebastianwessel-quickjs/)
 
 </td>
 </tr>

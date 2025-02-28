@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP request from WASM in sebastianwessel/quickjs</title>
+    <script type="module">
+        // Based on official example: https://github.com/sebastianwessel/quickjs/blob/v2.0.1/example/basic/index.ts
+        import { loadQuickJs } from 'https://esm.sh/@sebastianwessel/quickjs@2.0.1';
+
+        const { runSandboxed } = await loadQuickJs('https://esm.sh/@jitl/quickjs-ng-wasmfile-release-sync');
+        const sandboxOptions = {
+            allowFetch: true,
+        }
+
+        const result = await runSandboxed(async ({ evalCode }) => {
+            return evalCode(`
+const fn = async () => {
+  const res = await fetch('https://httpbin.org/anything');
+
+  return res.text();
+}
+
+export default await fn();
+`)
+        }, sandboxOptions);
+
+        console.log(result.data);
+    </script>
+</head>
+<body>
+<h2>HTTP Request from inside WASM using sebastianwessel/quickjs</h2>
+
+<p>This example uses <a href="https://github.com/sebastianwessel/quickjs">sebastianwessel/quickjs</a>.</p>
+
+<p>See the output in browser developer console.</p>
+
+<p>Actual code:</p>
+<pre>
+
+const fn = async () => {
+  const res = await fetch('https://httpbin.org/anything');
+
+  return res.text();
+}
+
+export default await fn();
+
+</pre>
+<footer><small>Created for (wannabe-awesome) <a href="https://github.com/vasilev/HTTP-request-from-inside-WASM">list</a></small>
+</footer>
+</body>
+</html>
